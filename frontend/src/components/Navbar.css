@@ -1,0 +1,118 @@
+/* ─── Navbar ──────────────────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.navbar-logo {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.navbar-title {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-link {
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.navbar-link.active {
+  color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 8px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border-color);
+}
+
+.navbar-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  color: white;
+}
+
+.navbar-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar-user-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .navbar-user-info {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: 4px;
+  }
+}

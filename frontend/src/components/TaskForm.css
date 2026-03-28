@@ -1,0 +1,80 @@
+/* ─── Task Form Modal ─────────────────────────────────────────── */
+.task-form-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.task-form {
+  width: 100%;
+  max-width: 560px;
+  padding: 32px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.task-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.task-form-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.task-form-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+}
+
+.task-form-close:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.task-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.task-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-input.error,
+.form-textarea.error {
+  border-color: var(--error);
+}
+
+@media (max-width: 600px) {
+  .task-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .task-form {
+    padding: 20px;
+  }
+}

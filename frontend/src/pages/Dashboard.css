@@ -1,0 +1,146 @@
+/* ─── Dashboard ───────────────────────────────────────────────── */
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.dashboard-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Stats */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-card);
+  pointer-events: none;
+}
+
+.stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-pending { color: var(--warning); }
+.stat-progress { color: var(--info); }
+.stat-completed { color: var(--success); }
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  opacity: 0.3;
+}
+
+/* Filters */
+.dashboard-filters {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+
+.filter-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Task List */
+.dashboard-tasks {
+  margin-bottom: 32px;
+}
+
+/* Pagination */
+.dashboard-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 16px;
+}
+
+.pagination-info {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+}

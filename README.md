@@ -1,5 +1,7 @@
 # 🚀 TaskFlow — Scalable REST API with Auth & CRUD
 
+🎉 **Live Demo:** Try the application running live on AWS: [http://100.54.134.15/register](http://100.54.134.15/register)
+
 A full-stack task management application built with **Express.js (MVC)** backend and **React (Vite)** frontend, featuring JWT authentication, role-based access control, and comprehensive CRUD operations.
 
 ## 📁 Project Structure
@@ -99,6 +101,28 @@ The frontend will start at **http://localhost:5173**
 Once the backend is running, visit:
 - **Swagger UI**: http://localhost:5000/api-docs
 - **Health Check**: http://localhost:5000/api/health
+
+### 5. AWS EC2 Deployment (Docker)
+
+The application is fully containerized and currently deployed on an AWS EC2 instance.
+
+**Architecture:**
+- **Frontend Container**: Multi-stage build (Vite/Node) serving optimized static assets via **Nginx** (Port 80).
+- **Backend Container**: Node 18 Alpine running the Express.js API (Port 5000).
+- **Networking**: Nginx reverse proxies `/api` calls internally via Docker's bridged network (`crud-network`).
+
+**Deployment Steps:**
+```bash
+# 1. Clone repository on EC2
+git clone https://github.com/rohitsinghnaruka/CRUD-task-intern.git
+cd CRUD-task-intern
+
+# 2. Add secret configurations
+nano backend/.env # Paste MONGO_URI and JWT_SECRET
+
+# 3. Pull images from Docker Hub and orchestrate
+docker-compose up -d
+```
 
 ## 📡 API Endpoints
 

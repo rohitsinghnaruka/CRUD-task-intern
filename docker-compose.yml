@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crud-task-backend
+    ports:
+      - "5000:5000"
+    # We pass the environment variables exactly as they are configured locally
+    env_file:
+      - ./backend/.env
+    restart: always
+    networks:
+      - crud-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: crud-task-frontend
+    # Map port 80 to 80 (standard HTTP port)
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - crud-network
+
+networks:
+  crud-network:
+    driver: bridge
